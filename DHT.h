@@ -95,12 +95,16 @@ private:
 class InterruptLock {
 public:
   InterruptLock() {
-#if !defined(ARDUINO_ARCH_NRF52)
+#if defined(ESP32)
+    portDISABLE_INTERRUPTS();
+#elif !defined(ARDUINO_ARCH_NRF52)
     noInterrupts();
 #endif
   }
   ~InterruptLock() {
-#if !defined(ARDUINO_ARCH_NRF52)
+#if defined(ESP32)
+    portENABLE_INTERRUPTS();
+#elif !defined(ARDUINO_ARCH_NRF52)
     interrupts();
 #endif
   }
