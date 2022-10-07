@@ -1,3 +1,5 @@
+This repository is cloned from https://github.com/adafruit/DHT-sensor-library and modified for my personal use
+
 # DHT sensor library
 
 ## Description
